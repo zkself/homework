@@ -4,18 +4,18 @@ from fractions import Fraction
 import sys
 import getopt
 
-typeString = sys.getfilesystemencoding()
+typeString = sys.getfilesystemencoding()#获取本地编码格式（因为考虑到要在cmd运行）
 
 
-def ran_num():
+def ran_num():#生成随机数
     return random.randint(1, 100)
 
 
-def ran_op():
+def ran_op():#随机选择运算符
     return random.randint(0, 3)
 
 
-def judgeLevel(op1, op2):
+def judgeLevel(op1, op2):#判断运算符优先级
     if op1 == 'x' and op2 == '+':
         return True
     if op1 == 'x' and op2 == '-':
@@ -27,7 +27,7 @@ def judgeLevel(op1, op2):
     return False
 
 
-def backExp(exp1):
+def backExp(exp1):#计算后缀表达式
     stack = []
     bck = []
     for i in range(len(exp1)):
@@ -52,7 +52,7 @@ def backExp(exp1):
     return bck
 
 
-def calculate(op, num1, num2):
+def calculate(op, num1, num2):#计算
     if op == '+':
         res = Fraction(num1, 1) + Fraction(num2, 1)
     if op == '-':
